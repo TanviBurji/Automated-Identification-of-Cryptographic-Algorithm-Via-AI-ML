@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="title">Cryptographic Analysis</h2>
+
+<div class="dashboard">
+
+    <div class="left-panel">
+
+        <div class="card">
+            <h3>Analyze HEX Input</h3>
+
+            <form method="POST">
+                <textarea name="cipher" placeholder="Paste HEX data..."></textarea>
+                <button type="submit">Detect Algorithm</button>
+            </form>
+
+            {% if error %}
+                <p style="color:red;">{{ error }}</p>
+            {% endif %}
+        </div>
+
+        {% if result %}
+        <div class="result-card">
+
+            <h3>Detected: {{ result.prediction }}</h3>
+            <p>Confidence: {{ result.confidence }}%</p>
+
+            <ul>
+                {% for e in result.explanations %}
+                <li>{{ e }}</li>
+                {% endfor %}
+            </ul>
+
+            <canvas id="chart"></canvas>
+
+            <div id="chart-data"
+                 data-labels='{{ result.labels | tojson }}'
+                 data-values='{{ result.prob_values | tojson }}'>
+            </div>
+
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const el = document.getElementById("chart-data");
+            if (!el) return;
+
+            const labels = JSON.parse(el.dataset.labels);
+            const values = JSON.parse(el.dataset.values);
+
+            const ctx = document.getElementById("chart").getContext("2d");
+
+            new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Confidence %',
+                        data: values
+                    }]
+                }
+            });
+
+        });
+        </script>
+        {% endif %}
+
+    </div>
+
+    <div class="right-panel">
+        <div class="card">
+            <h3>Supported Algorithms</h3>
+            <div class="algo-list">
+                <span>3DES</span>
+                <span>AES</span>
+                <span>Blowfish</span>
+                <span>DES</span>
+                <span>ECC</span>
+                <span>MD5</span>
+                <span>RSA</span>
+                <span>SHA-256</span>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

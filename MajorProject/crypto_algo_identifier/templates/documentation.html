@@ -1,0 +1,183 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2 class="page-title">Supported Algorithms</h2>
+
+<div class="algo-container">
+
+  <!-- AES -->
+  <div class="algo-card">
+    <h3>AES (Advanced Encryption Standard)</h3>
+    <p class="tag secure">Type: Symmetric Encryption</p>
+
+    <p><strong>Key Sizes:</strong> 128 / 192 / 256 bits</p>
+
+    <p><strong>Use Cases:</strong></p>
+    <ul>
+      <li>SSL/TLS encryption</li>
+      <li>Disk encryption (BitLocker, FileVault)</li>
+      <li>Wireless security (WPA2/WPA3)</li>
+    </ul>
+
+    <p><strong>Key Features:</strong></p>
+    <ul>
+      <li>Substitution-Permutation Network (SPN)</li>
+      <li>High security and performance</li>
+      <li>Uses Galois Field arithmetic</li>
+    </ul>
+  </div>
+
+  <!-- DES -->
+  <div class="algo-card">
+    <h3>DES (Data Encryption Standard)</h3>
+    <p class="tag insecure">Type: Symmetric Encryption</p>
+
+    <p><strong>Key Size:</strong> 56 bits</p>
+
+    <p><strong>Use Cases:</strong></p>
+    <ul>
+      <li>Legacy systems</li>
+      <li>Historical cryptography studies</li>
+    </ul>
+
+    <p><strong>Key Features:</strong></p>
+    <ul>
+      <li>Feistel network structure</li>
+      <li>Fast in hardware</li>
+      <li>Vulnerable to brute-force attacks</li>
+    </ul>
+  </div>
+
+  <!-- 3DES -->
+  <div class="algo-card">
+    <h3>3DES (Triple DES)</h3>
+    <p class="tag warning">Type: Symmetric Encryption</p>
+
+    <p><strong>Key Size:</strong> 112 / 168 bits</p>
+
+    <p><strong>Use Cases:</strong></p>
+    <ul>
+      <li>Banking systems</li>
+      <li>Legacy financial applications</li>
+    </ul>
+
+    <p><strong>Key Features:</strong></p>
+    <ul>
+      <li>Applies DES three times</li>
+      <li>Improved security over DES</li>
+      <li>Slow compared to AES</li>
+    </ul>
+  </div>
+
+  <!-- Blowfish -->
+  <div class="algo-card">
+    <h3>Blowfish</h3>
+    <p class="tag secure">Type: Symmetric Encryption</p>
+
+    <p><strong>Key Size:</strong> 32 – 448 bits</p>
+
+    <p><strong>Use Cases:</strong></p>
+    <ul>
+      <li>Password hashing systems</li>
+      <li>File encryption tools</li>
+    </ul>
+
+    <p><strong>Key Features:</strong></p>
+    <ul>
+      <li>Fast and efficient</li>
+      <li>Feistel network design</li>
+      <li>Flexible key length</li>
+    </ul>
+  </div>
+
+  <!-- MD5 -->
+  <div class="algo-card">
+    <h3>MD5</h3>
+    <p class="tag insecure">Type: Hash Function</p>
+
+    <p><strong>Output Size:</strong> 128-bit hash</p>
+
+    <p><strong>Use Cases:</strong></p>
+    <ul>
+      <li>Checksum verification</li>
+      <li>Legacy hashing systems</li>
+    </ul>
+
+    <p><strong>Key Features:</strong></p>
+    <ul>
+      <li>Fast computation</li>
+      <li>Produces fixed-length hash</li>
+      <li>Broken due to collisions</li>
+    </ul>
+  </div>
+
+  <!-- SHA-256 -->
+  <div class="algo-card">
+    <h3>SHA-256</h3>
+    <p class="tag secure">Type: Cryptographic Hash Function</p>
+
+    <p><strong>Output Size:</strong> 256-bit hash</p>
+
+    <p><strong>Use Cases:</strong></p>
+    <ul>
+      <li>Blockchain (Bitcoin)</li>
+      <li>Digital signatures</li>
+      <li>SSL/TLS security</li>
+    </ul>
+
+    <p><strong>Key Features:</strong></p>
+    <ul>
+      <li>Strong collision resistance</li>
+      <li>Part of SHA-2 family</li>
+      <li>Widely trusted standard</li>
+    </ul>
+  </div>
+
+  <!-- RSA -->
+  <div class="algo-card">
+    <h3>RSA</h3>
+    <p class="tag secure">Type: Asymmetric Encryption</p>
+
+    <p><strong>Key Sizes:</strong> 2048 / 3072 / 4096 bits</p>
+
+    <p><strong>Use Cases:</strong></p>
+    <ul>
+      <li>Secure key exchange</li>
+      <li>Digital signatures</li>
+      <li>SSL/TLS certificates</li>
+    </ul>
+
+    <p><strong>Key Features:</strong></p>
+    <ul>
+      <li>Public and private key pair</li>
+      <li>Based on prime factorization</li>
+      <li>Highly secure but slower</li>
+    </ul>
+  </div>
+
+  <!-- ECC -->
+  <div class="algo-card">
+    <h3>ECC (Elliptic Curve Cryptography)</h3>
+    <p class="tag secure">Type: Asymmetric Encryption</p>
+
+    <p><strong>Key Sizes:</strong> 224 / 256 / 384 / 521 bits</p>
+
+    <p><strong>Use Cases:</strong></p>
+    <ul>
+      <li>Mobile security</li>
+      <li>Cryptocurrencies</li>
+      <li>Secure messaging apps</li>
+    </ul>
+
+    <p><strong>Key Features:</strong></p>
+    <ul>
+      <li>Smaller key sizes</li>
+      <li>Faster computations</li>
+      <li>High security efficiency</li>
+    </ul>
+  </div>
+
+</div>
+
+{% endblock %}
